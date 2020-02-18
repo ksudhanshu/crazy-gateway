@@ -1,10 +1,11 @@
 # CrazyGateway
 
-This application was generated using JHipster 6.7.1, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v6.7.1](https://www.jhipster.tech/documentation-archive/v6.7.1).
 
 This is a "microservice" application intended to be part of a microservice architecture, please refer to the [Doing microservices with JHipster][] page of the documentation for more information.
 
-This application is configured for Service Discovery and Configuration with . On launch, it will refuse to start if it is not able to connect to .
+This application is configured with Kafka dependency. Please runn following command
+
+docker-compose -f src/main/docker/kafka.yml up -d
 
 ## Development
 
@@ -88,3 +89,9 @@ To configure CI for your project, run the ci-cd sub-generator (`jhipster ci-cd`)
 [running tests page]: https://www.jhipster.tech/documentation-archive/v6.7.1/running-tests/
 [code quality page]: https://www.jhipster.tech/documentation-archive/v6.7.1/code-quality/
 [setting up continuous integration]: https://www.jhipster.tech/documentation-archive/v6.7.1/setting-up-ci/
+
+
+#See message from kafka
+
+kafka-console-consumer --bootstrap-server localhost:9092 --from-beginning --topic EventType1
+

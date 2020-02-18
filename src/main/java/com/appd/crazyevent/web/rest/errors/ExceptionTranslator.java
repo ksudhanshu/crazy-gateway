@@ -1,6 +1,11 @@
 package com.appd.crazyevent.web.rest.errors;
 
-import io.github.jhipster.web.util.HeaderUtil;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
@@ -17,11 +22,9 @@ import org.zalando.problem.spring.web.advice.ProblemHandling;
 import org.zalando.problem.spring.web.advice.security.SecurityAdviceTrait;
 import org.zalando.problem.violations.ConstraintViolationProblem;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import javax.servlet.http.HttpServletRequest;
-import java.util.List;
-import java.util.stream.Collectors;
+import com.appd.crazyevent.exception.TooManyRequestException;
+
+import io.github.jhipster.web.util.HeaderUtil;
 
 /**
  * Controller advice to translate the server side exceptions to client-friendly json structures.
@@ -94,4 +97,14 @@ public class ExceptionTranslator implements ProblemHandling, SecurityAdviceTrait
     public ResponseEntity<Problem> handleBadRequestAlertException(BadRequestAlertException ex, NativeWebRequest request) {
         return create(ex, request, HeaderUtil.createFailureAlert(applicationName, false, ex.getEntityName(), ex.getErrorKey(), ex.getMessage()));
     }
+    
+    @ExceptionHandler
+    public ResponseEntity<Problem> handleTooManyRequestException(TooManyRequestException ex, NativeWebRequest request) {
+    	Problem problem = Problem.builder()
+                .withStatus(Status.TOO_MANY_REQUESTS  )
+                .with(MESSAGE_KEY, "Too many request. Rate-Limit reached.")
+                .build();
+            return create(ex, problem, request);
+    }
+    
 }

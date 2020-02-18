@@ -46,6 +46,9 @@ spring:
       bootstrap-servers: localhost:9092
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      linger-ms: 60000
+      batch-size: 5
+      compression-type: snappy
   mail:
     host: localhost
     port: 25
@@ -122,4 +125,6 @@ jhipster:
 # https://www.jhipster.tech/common-application-properties/
 # ===================================================================
 
-# application:
+application:
+  requestPerMin: 30
+  requestPerHour: 50

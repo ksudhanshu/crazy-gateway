@@ -23,6 +23,7 @@ plugins {
     id "net.ltgt.apt"
     id "org.sonarqube"
     id "io.spring.nohttp"
+    id "com.google.protobuf" version "0.8.10"
     //jhipster-needle-gradle-plugins - JHipster will add additional gradle plugins here
 }
 
@@ -37,6 +38,7 @@ assert System.properties["java.specification.version"] == "1.8" || "11" || "12" 
 
 apply from: "gradle/docker.gradle"
 apply from: "gradle/sonar.gradle"
+apply from: "gradle/grpc.gradle"
 //jhipster-needle-gradle-apply-from - JHipster will add additional gradle scripts to be applied here
 
 if (project.hasProperty("prod") || project.hasProperty("gae")) {
@@ -251,6 +253,13 @@ dependencies {
     testImplementation "com.tngtech.archunit:archunit-junit5-api:${archunit_junit5_version}"
     testRuntimeOnly "com.tngtech.archunit:archunit-junit5-engine:${archunit_junit5_version}"
     testImplementation "org.testcontainers:kafka"
+    implementation "io.github.lognet:grpc-spring-boot-starter:3.5.0"
+    implementation "com.google.protobuf:protobuf-java:3.9.0"
+    implementation "io.grpc:grpc-protobuf:1.25.0"
+    implementation "io.grpc:grpc-stub:1.25.0"
+    implementation "com.salesforce.servicelibs:reactor-grpc-stub:1.0.0"
+    implementation "com.google.code.gson:gson:2.8"
+    implementation "io.netty:netty-transport-native-epoll"
     //jhipster-needle-gradle-dependency - JHipster will add additional dependencies here
 }
 

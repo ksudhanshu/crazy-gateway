@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.appd.crazyevent.grpc";
+
+import "google/protobuf/empty.proto";
+
+package com.appd.crazyevent;
+
+service CrazyEventGateway {
+    rpc event(Event) returns (google.protobuf.Empty);
+}
+
+enum EventType {
+    EventType1 = 0;
+    EventType2 = 1;
+    EventType3 = 2;
+    EventType4 = 3;
+}
+
+message Event {
+    EventType eventType = 1;
+    int64 eventId = 2;
+    string source = 3;
+    string data = 4;
+}
+
