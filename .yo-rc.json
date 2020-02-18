@@ -1,0 +1,38 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.appd.crazyevent"
+    },
+    "jhipsterVersion": "6.7.1",
+    "applicationType": "microservice",
+    "baseName": "CrazyGateway",
+    "packageName": "com.appd.crazyevent",
+    "packageFolder": "com/appd/crazyevent",
+    "serverPort": "8081",
+    "authenticationType": "jwt",
+    "cacheProvider": "hazelcast",
+    "enableHibernateCache": false,
+    "websocket": false,
+    "databaseType": "no",
+    "devDatabaseType": "no",
+    "prodDatabaseType": "no",
+    "searchEngine": false,
+    "messageBroker": "kafka",
+    "serviceDiscoveryType": false,
+    "buildTool": "gradle",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "ODZkODFhMjMwNDU2OGI3MDk4MzYxZGE5MTFiODRjMGY1MDRjODI1MzEyYjBhNGE0MTc1MWE5OTljOTkxYTNmNmNiMDRlOGZhNDgxNGZjZmFjOTJmZTY3OGUzZWYzNDk3YTQzNGJiMzIyYWU3NGZhNjdjYzE0Nzc0NmYxNTI3OTM=",
+    "embeddableLaunchScript": false,
+    "creationTimestamp": 1581999760822,
+    "testFrameworks": ["cucumber"],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": false,
+    "clientPackageManager": "npm",
+    "blueprints": [],
+    "skipClient": true,
+    "skipUserManagement": true
+  }
+}
