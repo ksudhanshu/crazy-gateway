@@ -95,3 +95,5 @@ To configure CI for your project, run the ci-cd sub-generator (`jhipster ci-cd`)
 
 kafka-console-consumer --bootstrap-server localhost:9092 --from-beginning --topic EventType1
 
+
+
